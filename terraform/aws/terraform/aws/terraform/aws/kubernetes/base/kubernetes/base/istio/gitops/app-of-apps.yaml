@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: enterprise-platform
+spec:
+  source:
+    repoURL: https://github.com/yourusername/enterprise-multi-cluster-kubernetes-platform
+    path: kubernetes/base
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
